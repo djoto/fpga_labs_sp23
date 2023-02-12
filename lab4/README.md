@@ -13,12 +13,17 @@ College of Engineering, University of California, Berkeley
 
 
 ## Before You Begin
-Fetch the latest lab skeleton
+Back up the following files you modified in Lab3 just in case.
+ - `lab3/src/debouncer.v`
+ - `lab3/src/synchronizer.v`
+ - `lab3/src/edge_detector.v`
+
+Fetch the latest lab skeleton.
 ```shell 
 cd fpga_labs_sp23-username
 git pull skeleton main
 ```
-Replace the following files with your code from Lab 3.
+Replace the following files with the files you backed up.
  - `lab4/src/debouncer.v`
  - `lab4/src/synchronizer.v`
  - `lab4/src/edge_detector.v`
