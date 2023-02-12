@@ -159,6 +159,7 @@ Don't hesitate to ask a TA if you need some clarifications for this task.
 
 ## Lab Deliverables (due: Feb 27th, 2023)
 To checkoff for this lab, have these things ready to show the TA:
+ - Show two resource utilization reports for your register file with or without `ASYNC_RAM`.
  - Demonstrate working accumulation designs with `ASYNC_ROM` and `SYNC_ROM` (`LED[5]` should be on when programmed for the calculator).
  - Demonstrate a working calculator. Your calculator should be able to store data, load data, and add two operands. As an example, try storing the values 3 (`4'b0011') and 12 (`4'b1100`) to the locations 0 and 1 of the Register File, respectively. and perform the addition of the data from the location 0 and 1, and store the result to location 2. Next, perform a load at one location to see if data gets written correctly.
 
