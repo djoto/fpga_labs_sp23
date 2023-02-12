@@ -74,7 +74,7 @@ module control_unit_tb();
   initial begin
 `ifdef IVERILOG
      $dumpfile("control_unit_tb.fst");
-     $dumpvars();
+     $dumpvars;
 `endif
 `ifndef IVERILOG
      $vcdpluson;
