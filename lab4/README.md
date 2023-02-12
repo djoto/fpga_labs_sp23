@@ -124,7 +124,7 @@ This will initialize the content of your ROM blocks with a sequence of consecuti
 Simulate your designs to check if they work as intended.
 With a `len` of 1024, you should make sure that your circuit implementations can finish the computation in roughly 1024 cycles.
 
-Once you are done with simulation, comment out `\`define REGISTER_FILE` and comment in `\`define ACCUMULATOR` in `lab4/src/z1top.v`. Then, generate a bitstream to test your accumulator designs on the PYNQ where `lab4/src/z1top_accumulator.v` is instantiated in the top module.
+Once you are done with simulation, comment out `` `define REGISTER_FILE`` and comment in `` `define ACCUMULATOR`` in `lab4/src/z1top.v`. Then, generate a bitstream to test your accumulator designs on the PYNQ where `lab4/src/z1top_accumulator.v` is instantiated in the top module.
 
 Program the FPGA. If your design works correctly (the accumulation results are correct for both `acc_async_read` and `acc_sync_read`), both RGB LEDs should be ON. Press `BUTTONS[0]` (or `BUTTONS[1]`) twice to restart the operation of `acc_async_read` (or `acc_sync_read`).
 
