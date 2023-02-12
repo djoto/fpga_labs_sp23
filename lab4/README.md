@@ -152,7 +152,7 @@ Here, the `keypad_value` refers to the input value that we set using `BUTTONS[0]
 
 You are also required to use Finite-State Machine (FSM) technique learned from the lectures to implement the calculator. Breaking the functionalities to different states helps you to build the control logic for your calculator more naturally. Initially, your calculator is in an idle state, and you use the switch configuration with `BUTTONS[3]` to transition to another state, and back to the idle state when a command/task is finished. Before you begin coding, try drawing a FSM diagram of your control logic, and think of when a particular control signal should be asserted. You are free to make any assumption regarding the functionalities of the calculator in cases where the description above does not cover.
 
-When you are done with implementing your control logic module, write your own testbench to verify your design, comment out `` `define ACCUMULATOR`` in `lab4/src/z1top.v` to instantiate `lab4/src/z1top_calculator.v`, and then generate a bitstream to test it on your PYNQ board.
+When you are done with implementing your control logic module, verify it with a provided testbench `lab4/sim/control_unit_tb.v`. This testbensh is incomplete in that it only tests the Write and Read states. If you feel the necessity to test the Compute state, feel free to modify the testbench. After testing, comment out `` `define ACCUMULATOR`` in `lab4/src/z1top.v` to instantiate `lab4/src/z1top_calculator.v`, and then generate a bitstream to test it on your PYNQ board.
 
 Don't hesitate to ask a TA if you need some clarifications for this task.
 
