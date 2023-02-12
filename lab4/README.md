@@ -117,7 +117,7 @@ Fill in the necessary logic in `lab4/src/acc_async_read.v` and `lab4/src/acc_syn
 The testbench code has been provided for you. Have a look at these files to understand what is being tested.
  - `lab4/sim/acc_async_read_tb.v`
  - `lab4/sim/acc_sync_read_tb.v`
- - `lab3/sim/test_data_sim.mif`
+ - `lab4/sim/test_data_sim.mif`
 
 This will initialize the content of your ROM blocks with a sequence of consecutive odd numbers from 1 to 2047 as test data.
 
@@ -139,16 +139,16 @@ In this section, you will build a rudimentary calculator that can perform some b
 To set the value for address or data, we use `BUTTONS[0]` or `BUTTONS[1]` to increment or decrement the values as similar to previous designs. When setting a value, it should display on the LEDs (unless we read from the Register File, or perform the addition as described above). For your reference, here is the block diagram of the calculator design. The design is divided into separate modules: one for control logic and one for datapath. The modularity allows us to isolate and concentrate on one block at a time, and is helpful to reduce the complexity of the design process.
 
 <p align=center>
-  <img height=170 src="./figs/calculator_datapath_control.png"/>
+  <img height=500 src="./figs/calculator_datapath_control.png"/>
 </p>
 
-Here, the `keypad_value` refers to the input value that we set using `BUTTONS[0]` or `BUTTONS[1]`. Note how we use a few registers for setting up the address and data input for the register file in the datapath. We also use the registers to prepare the operands for the addition. The datapath module is provided to you. **Your task is to implement the Control Logic module**. The control logic is in charge of asserting the clock-enable signals for the registers in the datapath, write-enable for the register file, as well as selecting which result to display on the LEDs. Fill in your code in the file `lab3/src/control_unit.v`.
+Here, the `keypad_value` refers to the input value that we set using `BUTTONS[0]` or `BUTTONS[1]`. Note how we use a few registers for setting up the address and data input for the register file in the datapath. We also use the registers to prepare the operands for the addition. The datapath module is provided to you. **Your task is to implement the Control Logic module**. The control logic is in charge of asserting the clock-enable signals for the registers in the datapath, write-enable for the register file, as well as selecting which result to display on the LEDs. Fill in your code in the file `lab4/src/control_unit.v`.
 
 You are also required to use Finite-State Machine (FSM) technique learned from the lectures to implement the calculator. Breaking the functionalities to different states helps you to build the control logic for your calculator more naturally. Initially, your calculator is in an idle state, and you use the switch configuration with `BUTTONS[3]` to transition to another state, and back to the idle state when a command/task is finished. Before you begin coding, try drawing a FSM diagram of your control logic, and think of when a particular control signal should be asserted.
 
 You are free to make any assumption regarding the functionalities of the calculator in cases where the description above does not cover. Please also feel free to change the datapath module if it makes your design more efficient or functional.
 
-When you are done with implementing your control logic module, write your own testbench to verify your design, then generate a bitstream with `lab3/src/z1top_calculator.v` as the top-level module to test it on your PYNQ board.
+When you are done with implementing your control logic module, write your own testbench to verify your design, then generate a bitstream with `lab4/src/z1top_calculator.v` as the top-level module to test it on your PYNQ board.
 
 Don't hesitate to ask a TA if you need some clarifications for this task.
 
