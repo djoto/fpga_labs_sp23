@@ -19,5 +19,5 @@ module debouncer #(
     // Remove this line once you have created your debouncer
     assign debounced_signal = 0;
 
-    reg [SAT_CNT_WIDTH-1:0] saturating_counter [WIDTH-1:0];
+    wire [SAT_CNT_WIDTH-1:0] saturating_counter [WIDTH-1:0];
 endmodule

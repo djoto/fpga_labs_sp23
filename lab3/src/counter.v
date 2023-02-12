@@ -5,18 +5,22 @@ module counter #(
     input [3:0] buttons,
     output [3:0] leds
 );
-    reg [3:0] counter = 0;
+    wire [3:0] count;
+    wire [3:0] d;
     assign leds = counter;
 
-    always @(posedge clk) begin
+    always @(*) begin
         if (buttons[0])
-            counter <= counter + 4'd1;
+            data = counter + 4'd1;
         else if (buttons[1])
-            counter <= counter - 4'd1;
+            data = counter - 4'd1;
         else if (buttons[3])
-            counter <= 4'd0;
+            data = 4'd0;
         else
-            counter <= counter;
+            data = count;
+            
     end
+
+    REGISTER #(4) counter (.q(count), .d(data), .clk(clk))
 endmodule
 
