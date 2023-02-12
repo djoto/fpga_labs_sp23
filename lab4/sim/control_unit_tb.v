@@ -157,4 +157,13 @@ module control_unit_tb();
      $finish();
   end
 
+  initial begin
+    repeat (10000) @(posedge clk);
+`ifndef IVERILOG
+     $vcdplusoff;
+`endif
+    $display("Timeout!");
+    $finish();
+  end
+
 endmodule
