@@ -1,4 +1,4 @@
-pp`timescale 1ns/1ns
+`timescale 1ns/1ns
 
 module datapath #(
   parameter WIDTH = 5
