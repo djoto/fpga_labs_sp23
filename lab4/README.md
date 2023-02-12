@@ -97,7 +97,7 @@ In this section, you will build a parameterized Register File module composed of
 
 Fill in the necessary logic in `lab4/src/register_file.v` to implement your Register file. A testbench code has been provided for you: `lab4/sim/register_file_tb.v` (please read the testbench code to understand what is being tested, and add your own tests if you see fit).
 
-Once you pass the simulation, use `lab4/src/z1top_register_file.v` as the top-level module to generate a bitstream to test your register file on the PYNQ. The circuit allows you to specify a location of the register file to store/load data. You will use the buttons to provide input location or data, and observe the results with the LEDs. Read the code carefully to understand how to use the buttons and switches to run it and what to expect. If you are unsure or spot any issues, please do not hesitate to talk to a TA.
+Once you pass the simulation, `make program` to test your register file on the PYNQ. The module `lab4/src/z1top_register_file.v` is instantiated in the top module. The circuit allows you to specify a location of the register file to store/load data. You will use the buttons to provide input location or data, and observe the results with the LEDs. Read the code carefully to understand how to use the buttons and switches to run it and what to expect. If you are unsure or spot any issues, please do not hesitate to talk to a TA.
 
 If your register file implementation works on the board, good work! Note down the resource utilization in terms of LUTs and FFs (If you forget where to find the resource utilization report, check Lab 1). Next, modify your Register File implementation `lab4/src/register_file.v` to use the `ASYNC_RAM` module from `EECS151.v`, and run the tool again to produce a bitstream to test it on your board (make sure you pass the simulation first!). Also record the resource utilization in this case.
 
@@ -124,7 +124,7 @@ This will initialize the content of your ROM blocks with a sequence of consecuti
 Simulate your designs to check if they work as intended.
 With a `len` of 1024, you should make sure that your circuit implementations can finish the computation in roughly 1024 cycles.
 
-Once you are done with simulation, generate a bitstream to test your accumulator designs on the PYNQ using `lab3/src/z1top_acc.v` as the top-level module.
+Once you are done with simulation, comment out `\`define REGISTER_FILE` and comment in `\`define ACCUMULATOR` in `lab4/src/z1top.v`. Then, generate a bitstream to test your accumulator designs on the PYNQ where `lab4/src/z1top_accumulator.v` is instantiated in the top module.
 
 Program the FPGA. If your design works correctly (the accumulation results are correct for both `acc_async_read` and `acc_sync_read`), both RGB LEDs should be ON. Press `BUTTONS[0]` (or `BUTTONS[1]`) twice to restart the operation of `acc_async_read` (or `acc_sync_read`).
 
