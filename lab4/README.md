@@ -141,6 +141,7 @@ In this section, you will build a rudimentary calculator that can perform some b
  - `SWITCHES[1:0] == 2'b10`, `BUTTONS[3]` is pressed: Entering Compute state. Set the address of the first operand, then press `BUTTONS[2]` to confirm. Next, set the address of the second operand, then press `BUTTONS[2]` to confirm. Next, set the address of the destination, then press `BUTTONS[2]` to confirm. The sum result should display on the LEDs.
   - `SWITCHES[1:0] == 2'b11`, `BUTTONS[3]` is pressed: reset the calculator.
 
+You may assume that the switches do not change until completing the current task.
 To set the value for address or data, we use `BUTTONS[0]` or `BUTTONS[1]` to increment or decrement the values as similar to previous designs. When setting a value, it should display on the LEDs (unless we read from the Register File, or perform the addition as described above). For your reference, here is the block diagram of the calculator design. The design is divided into separate modules: one for control logic and one for datapath. The modularity allows us to isolate and concentrate on one block at a time, and is helpful to reduce the complexity of the design process.
 
 <p align=center>

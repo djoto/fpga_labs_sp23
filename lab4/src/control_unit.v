@@ -51,13 +51,13 @@ module control_unit # (
 
   // The keypad register holds the value when we press BUTTONS[0] or BUTTONS[1]
   wire [WIDTH-1:0] keypad_reg_value, keypad_reg_next;
-  wire keypad_reg_ce, keypad_reg_rst;
+  wire keypad_reg_cen, keypad_reg_rst;
 
   REGISTER_R_CE #(.N(WIDTH), .INIT(0)) keypad_reg (
     .clk(clk),
     .d(keypad_reg_next),
     .q(keypad_reg_value),
-    .ce(keypad_reg_ce),
+    .ce(keypad_reg_cen),
     .rst(keypad_reg_rst)
   );
 
@@ -78,7 +78,7 @@ module control_unit # (
   assign keypad_reg_next = (buttons_pressed[0] == 1'b1) ? keypad_reg_value + 1 :
                            (buttons_pressed[1] == 1'b1) ? keypad_reg_value - 1 : keypad_reg_value;
   assign keypad_reg_rst  = buttons_pressed[2];
-  assign keypad_reg_ce   = 0; // FIXME
+  assign keypad_reg_cen   = 0; // FIXME
 
   assign op_a_cen     = 0; // FIXME
   assign op_b_cen     = 0; // FIXME
