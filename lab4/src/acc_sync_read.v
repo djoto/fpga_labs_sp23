@@ -13,10 +13,9 @@ module acc_sync_read #(
   output done
 );
 
-  // TODO: Your code to implement an accumulator that reads data from (external)
+  // TODO: implement an accumulator that reads data from (external)
   // memory block synchronously w.r.t clk
-  // Some initial code has been provide to you, but please feel free to change them
-  // as you see fit
+  // Some initial code is provided to you, but feel free to change it
 
   // indexing value to memory 
   wire [31:0] index_reg_value, index_reg_next;
