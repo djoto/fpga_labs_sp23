@@ -139,7 +139,7 @@ In this section, you will build a rudimentary calculator that can perform some b
 To set the value for address or data, we use `BUTTONS[0]` or `BUTTONS[1]` to increment or decrement the values as similar to previous designs. When setting a value, it should display on the LEDs (unless we read from the Register File, or perform the addition as described above). For your reference, here is the block diagram of the calculator design. The design is divided into separate modules: one for control logic and one for datapath. The modularity allows us to isolate and concentrate on one block at a time, and is helpful to reduce the complexity of the design process.
 
 <p align=center>
-  <img height=1000 src="./figs/calculator_datapath_control.png"/>
+  <img height=1000 src="./figs/calculator.png"/>
 </p>
 
 Here, the `keypad_value` refers to the input value that we set using `BUTTONS[0]` or `BUTTONS[1]`. Note how we use a few registers for setting up the address and data input for the register file in the datapath. We also use the registers to prepare the operands for the addition. The datapath module is provided to you. **Your task is to implement the Control Logic module**. The control logic is in charge of asserting the clock-enable signals for the registers in the datapath, write-enable for the register file, as well as selecting which result to display on the LEDs. Fill in your code in the file `lab4/src/control_unit.v`.
