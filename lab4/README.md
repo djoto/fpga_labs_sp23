@@ -29,28 +29,28 @@ In this lab, we implement some designs using the FPGA Memory blocks. Way in the 
 
 Recall that in Lab 1, we explored different types of resources on our FPGA. Besides the LUTs and FFs for combinational and sequential logic implementation, our FPGA chip also offers Memory LUTs (from SLICEM) and Block RAMs for dense on-chip data storage. Some most recent Xilinx FPGA chips employ Ultra RAM blocks with even greater density. This brings many benefits as the read/write accesses to those memory blocks are fast and predictable (i.e., the number of cycles for read/write is known), unlike off-chip memory accesses. Note that an FPGA has no cache. You as a hardware designer will need to build your own datapath and control logic to manage memory accesses and storage on the FPGA. One benefit is that you can tailor this flexibility to your own application's memory requirement and access patterns to achieve much better performance than a traditional cache-based systems. The density of those memory blocks also reduces the register pressure when you need a large number of state elements in your design; you will see an example of that in one of the lab exercises. In the final project, the Memory blocks are utilized to implement the data storage modules for your processor, such as register file, instructional and data memory.
 
-Take a look at `EECS151.v`. Besides the REGISTER modules, we have some memory modules. What's different from the REGISTER modules is that we now have an address input pin for each memory module. Typically, a memory port refers to a set of signals {`clk` (clock), `addr` (address pin),  `we` (write-enable), `d` (data input), `q` (data output) (and the optional `en` (enable) pin). In this lab, we deal with single-port memory blocks. As we will see in later labs, there are also dual-port memory modules.
+Take a look at `EECS151.v`. Besides the REGISTER modules, we have some memory modules. What's different from the REGISTER modules is that we now have an address input pin for each memory module. Typically, a memory port refers to a set of signals: `clk` (clock), `addr` (address pin),  `we` (write-enable), `d` (data input), `q` (data output), and the optional `en` (enable pin). In this lab, we deal with single-port memory blocks. As we will see in later labs, there are also dual-port memory modules.
 
 Regarding timing characteristics. there are two types of memory blocks that we should pay attention for now: **Asynchronous Read and Synchronous Write** Memory, and **Synchronous Read and Synchronous Write** Memory. The synchronicity is with respect to the input clock signal. When write, both types write the data to their storages at the next clock edge (write takes one cycle). When read, asynchronous read data appears on the data output pin in the same cycle as the address pin applies/changes (read happens immediately), whereas synchronous read data is only available at the next clock edge (read takes one cycle)
 An asychronous-read Memory block typically gets mapped to Distributed RAMs on an FPGA (Memory LUTs/LUTRAMs), while a synchronous-read Memory block is mapped to Block RAMs (BRAMs).
 Our FPGA board has 17,400 Memory LUTs (about 64 bits * 17,400 = 1Mb) and 4.9 Mb BRAM.
 Both can also be utilized as ROM-style memory blocks for read-only data storage. Using ROMs also yields simpler control logic if you don't do any memory updates. Note that the typical logic LUTs from SLICEL can also be used to implement ROMs.
 
-You can have a look at the timing diagram of an FPGA LUTRAM to understand how asynchronous read and synchronous write work (page 65, [Xilinx 7-series Configurable Logic Block User Guide](http://www.xilinx.com/support/documentation/user_guides/ug474_7Series_CLB.pdf)). Note how a memory write is synchronous with the clock edge when `WE` is HIGH, and read is spontaneous.
+You can have a look at the timing diagram of an FPGA LUTRAM to understand how asynchronous read and synchronous write work (page 65, [Xilinx 7-series Configurable Logic Block User Guide](http://www.xilinx.com/support/documentation/user_guides/ug474_7Series_CLB.pdf)). Note how a memory write is synchronous with the clock edge when WE is HIGH, and read is spontaneous.
 
 <p align=center>
-  <img height=170 src="./figs/lutram_timing.png"/>
+  <img height=500 src="./figs/lutram_timing.png"/>
 </p>
 
-Since we are adopting the "No Register inference" policy in this semester, you won't be asked to code your own memory blocks in the lab exercises and the project. Rather, we will provide the memory templates for you as similar to the REGISTER modules in `lib/EECS151.v`; they are guaranteed to be synthesized to memory blocks by Vivado correctly. However, for your learning, it is certainly important to be aware of how a piece of Verilog code gets synthesized to a memory block.
-The memory are declared as an array of \verb|reg| nets as follows.
+Since we are adopting the "No Register inference" policy in this semester, you won't be asked to code your own memory blocks in the lab exercises and the project. Rather, we will provide the memory templates for you as similar to the REGISTER modules in `EECS151.v`; they are guaranteed to be synthesized to memory blocks by Vivado correctly. However, for your learning, it is certainly important to be aware of how a piece of Verilog code gets synthesized to a memory block.
+The memory are declared as an array of `reg` nets as follows.
 
 ```verilog
 (* ram_style = "block" *) reg [DWIDTH-1:0] mem [DEPTH-1:0];
 ```
 
 Depending on how you write your Verilog code that makes use of this `reg`, the Synthesis tool will infer this `reg` as either a bunch of separate registers or some form of dense memory block(s). Certain vendors adopt some specific coding styles or synthesis attributes that give hints to the tools to map your hardware nets to which FPGA resources. Here, the attribute `ram_style = "block"` tells Vivado synthesis that we want to map this `reg` to Block RAMs. Normally, we just let the tools to figure out what resources are best to use to create optimal designs. Sometimes the tool makes a decision based on the resource utilization of your designs and the availability of the resource on the target board. The tool also considers which resource to use to minimize the logic and interconnect delay. Most of the time, a hardware design just relies on the tool. Nonetheless, the tool also offers some synthesis attributes to give us the flexibility to force the tool to do what we want. Note that those attributes or coding styles may not apply from one vendor tool to another, so you should always consult the Synthesis user guide of your vendor tools.
-If you are interested to learn more, you should definitely take a look at [Vivado Synthesis Guide](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_2/ug901-vivado-synthesis.pdf), Chapter 2 and 4. Look at page 110 to see some examples of RAM HDL Coding techniques.
+If you are interested to learn more, you should definitely take a look at [Vivado Synthesis Guide](https://docs.xilinx.com/v/u/2021.1-English/ug901-vivado-synthesis), Chapter 2 and 4. Read from page 111 to see some examples of RAM HDL Coding techniques.
 
 We can initialize the content of our memory blocks with the following Verilog constructs.
 
@@ -92,7 +92,7 @@ Note that you are free to use this method in your design file, since it does not
 In this section, you will build a parameterized Register File module composed of REGISTER blocks. Our simple Register File module has a single port for read or write {`clk`, `we`, `addr`, `din`, `dout`}. The address and data width are parameterizable. Refer to the following block diagram for the details.
 
 <p align=center>
-  <img height=170 src="./figs/regfile.png"/>
+  <img height=500 src="./figs/regfile.png"/>
 </p>
 
 Fill in the necessary logic in `lab4/src/register_file.v` to implement your Register file. A testbench code has been provided for you: `lab4/sim/register_file_tb.v` (please read the testbench code to understand what is being tested, and add your own tests if you see fit).
