@@ -4,7 +4,6 @@ module control_unit # (
   parameter WIDTH = 5
 ) (
   input clk,
-  input rst,
   input [3:0] buttons_pressed,
   input [1:0] SWITCHES,
 
@@ -41,6 +40,7 @@ module control_unit # (
 
   reg  [1:0] state_next;
   wire [1:0] state_value;
+  wire       rst;
 
   REGISTER_R #(.N(2), .INIT(STATE_IDLE)) state_reg (
     .clk(clk),
@@ -93,5 +93,7 @@ module control_unit # (
 
   assign keypad_value = keypad_reg_value;
   assign idle = (state_value == STATE_IDLE);
+
+  assign rst = (SWITCHES[1:0] == 2'b11) & buttons_pressed[3];
 
 endmodule

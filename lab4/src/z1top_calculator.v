@@ -21,7 +21,6 @@ module z1top_calculator (
   wire disp_sel;
 
   wire idle;
-  wire rst;
 
   datapath #(
     .WIDTH(WIDTH)
@@ -47,7 +46,6 @@ module z1top_calculator (
     .WIDTH(WIDTH)
   ) CONTROL_UNIT (
     .clk(CLK_125MHZ_FPGA),
-    .rst(rst),
 
     .buttons_pressed(buttons_pressed), // input
     .SWITCHES(SWITCHES),               // input
@@ -70,7 +68,5 @@ module z1top_calculator (
   // We use LEDS[4] as indicator if the calculator is in idle state
   assign LEDS[4]   = idle;
   assign LEDS[3:0] = disp_output;
-
-  assign rst = (SWITCHES[1:0] == 2'b11) & buttons_pressed[3];
 
 endmodule
