@@ -36,13 +36,13 @@ module control_unit # (
   // Some code is provided, but feel free to modify it
 
   // What states do we need?
-  localparam STATE_IDLE = 2'b0;
+  localparam STATE_IDLE = 3'd0;
 
-  reg  [1:0] state_next;
-  wire [1:0] state_value;
+  reg  [2:0] state_next;
+  wire [2:0] state_value;
   wire       rst;
 
-  REGISTER_R #(.N(2), .INIT(STATE_IDLE)) state_reg (
+  REGISTER_R #(.N(3), .INIT(STATE_IDLE)) state_reg (
     .clk(clk),
     .rst(rst),
     .d(state_next),
@@ -77,7 +77,7 @@ module control_unit # (
 
   assign keypad_reg_next = (buttons_pressed[0] == 1'b1) ? keypad_reg_value + 1 :
                            (buttons_pressed[1] == 1'b1) ? keypad_reg_value - 1 : keypad_reg_value;
-  assign keypad_reg_rst  = buttons_pressed[2];
+  assign keypad_reg_rst  = 0; // FIXME
   assign keypad_reg_cen   = 0; // FIXME
 
   assign op_a_cen     = 0; // FIXME
