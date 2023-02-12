@@ -40,7 +40,7 @@ module acc_async_read_tb();
   );
 
   // "Software" version
-  reg [31:0] test_vector [DEPTH-1:0];
+  reg [31:0] test_vector [0:DEPTH-1];
   integer sw_result = 0;
   integer i;
   initial begin
