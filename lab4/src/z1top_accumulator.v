@@ -31,10 +31,10 @@ module z1top_accumulator (
   );
 
   assign s_rst_reg_next = ~s_rst_reg_value;
-  assign s_rst_reg_ce   = buttons_pressed[0];
+  assign s_rst_reg_ce   = buttons_pressed[1];
 
   assign a_rst_reg_next = ~a_rst_reg_value;
-  assign a_rst_reg_ce   = buttons_pressed[1];
+  assign a_rst_reg_ce   = buttons_pressed[0];
 
   assign s_rst = s_rst_reg_value;
   assign a_rst = a_rst_reg_value;
