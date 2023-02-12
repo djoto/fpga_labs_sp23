@@ -124,7 +124,7 @@ This will initialize the content of your ROM blocks with a sequence of consecuti
 Simulate your designs to check if they work as intended.
 With a `len` of 1024, you should make sure that your circuit implementations can finish the computation in roughly 1024 cycles.
 
-Once you are done with simulation, comment out `` `define REGISTER_FILE`` and comment in `` `define ACCUMULATOR`` in `lab4/src/z1top.v`. Then, generate a bitstream to test your accumulator designs on the PYNQ where `lab4/src/z1top_accumulator.v` is instantiated in the top module.
+Once you are done with simulation, comment out `` `define REGISTER_FILE`` in `lab4/src/z1top.v`. Then, generate a bitstream to test your accumulator designs on the PYNQ where `lab4/src/z1top_accumulator.v` is instantiated in the top module.
 
 Program the FPGA. If your design works correctly (the accumulation results are correct for both `acc_async_read` and `acc_sync_read`), both RGB LEDs should be ON. Press `BUTTONS[0]` (or `BUTTONS[1]`) twice to restart the operation of `acc_async_read` (or `acc_sync_read`).
 
@@ -139,7 +139,7 @@ In this section, you will build a rudimentary calculator that can perform some b
 To set the value for address or data, we use `BUTTONS[0]` or `BUTTONS[1]` to increment or decrement the values as similar to previous designs. When setting a value, it should display on the LEDs (unless we read from the Register File, or perform the addition as described above). For your reference, here is the block diagram of the calculator design. The design is divided into separate modules: one for control logic and one for datapath. The modularity allows us to isolate and concentrate on one block at a time, and is helpful to reduce the complexity of the design process.
 
 <p align=center>
-  <img height=500 src="./figs/calculator_datapath_control.png"/>
+  <img height=1000 src="./figs/calculator_datapath_control.png"/>
 </p>
 
 Here, the `keypad_value` refers to the input value that we set using `BUTTONS[0]` or `BUTTONS[1]`. Note how we use a few registers for setting up the address and data input for the register file in the datapath. We also use the registers to prepare the operands for the addition. The datapath module is provided to you. **Your task is to implement the Control Logic module**. The control logic is in charge of asserting the clock-enable signals for the registers in the datapath, write-enable for the register file, as well as selecting which result to display on the LEDs. Fill in your code in the file `lab4/src/control_unit.v`.
@@ -148,14 +148,14 @@ You are also required to use Finite-State Machine (FSM) technique learned from t
 
 You are free to make any assumption regarding the functionalities of the calculator in cases where the description above does not cover. Please also feel free to change the datapath module if it makes your design more efficient or functional.
 
-When you are done with implementing your control logic module, write your own testbench to verify your design, then generate a bitstream with `lab4/src/z1top_calculator.v` as the top-level module to test it on your PYNQ board.
+When you are done with implementing your control logic module, write your own testbench to verify your design, comment out `` `define ACCUMULATOR`` in `lab4/src/z1top.v` to instantiate `lab4/src/z1top_calculator.v`, and then generate a bitstream to test it on your PYNQ board.
 
 Don't hesitate to ask a TA if you need some clarifications for this task.
 
 ## Lab Deliverables (due: Feb 27th, 2023)
 To checkoff for this lab, have these things ready to show the TA:
- - Demonstrate working accumulation designs with `ASYNC_ROM` and `SYNC_ROM`.
- - Demonstrate a working calculator. Your calculator should be able to store data, load data, and add two operands. As an example, try storing the values 2, 4, 6, 8 to the locations 1, 2, 3, 4 of the Register File, respectively. and perform the addition of the data from the location 1 and 2, and store the result to location 5. Next, perform a load at one location to see if data gets written correctly.
+ - Demonstrate working accumulation designs with `ASYNC_ROM` and `SYNC_ROM` (`LED[5]` should be on when programmed for the calculator).
+ - Demonstrate a working calculator. Your calculator should be able to store data, load data, and add two operands. As an example, try storing the values 3 (`4'b0011') and 12 (`4'b1100`) to the locations 0 and 1 of the Register File, respectively. and perform the addition of the data from the location 0 and 1, and store the result to location 2. Next, perform a load at one location to see if data gets written correctly.
 
 
 ## Acknowledgement

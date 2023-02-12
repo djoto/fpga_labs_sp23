@@ -30,12 +30,14 @@ module z1top (
 
 `ifdef REGISTER_FILE
    z1top_register_file z1top_rf(.CLK_125MHZ_FPGA(CLK_125MHZ_FPGA), .buttons_pressed(buttons_pressed), .SWITCHES(SWITCHES), .LEDS(LEDS));
-`endif
-`ifdef ACCUMULATOR
+`elsif ACCUMULATOR
    z1top_accumulator z1top_acc(.CLK_125MHZ_FPGA(CLK_125MHZ_FPGA), .buttons_pressed(buttons_pressed), .SWITCHES(SWITCHES), .LEDS(LEDS));
+`elsif CALCULATOR
+   z1top_calculator z1top_calc(.CLK_125MHZ_FPGA(CLK_125MHZ_FPGA), .buttons_pressed(buttons_pressed), .SWITCHES(SWITCHES), .LEDS(LEDS[4:0]));
+   wire      rst;
+   wire [5:0] tmp;
+   z1top_accumulator z1top_acc(.CLK_125MHZ_FPGA(CLK_125MHZ_FPGA), .buttons_pressed({2'b00, rst, rst}), .SWITCHES(2'b00), .LEDS(tmp));
+   assign rst = (SWITCHES[1:0] == 2'b11) & buttons_pressed[3];
+   assign LEDS[5] = tmp[5] & tmp[4];
 `endif
-`ifdef CALCULATOR
-      z1top_calculator z1top_calc(.CLK_125MHZ_FPGA(CLK_125MHZ_FPGA), .buttons_pressed(buttons_pressed), .SWITCHES(SWITCHES), .LEDS(LEDS));
-`endif
-   
 endmodule
