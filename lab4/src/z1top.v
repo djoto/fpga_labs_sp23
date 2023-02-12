@@ -1,3 +1,5 @@
+/* verilator lint off REALCVT */
+
 `timescale 1ns/1ns
 `define CLOCK_FREQ 125_000_000
 

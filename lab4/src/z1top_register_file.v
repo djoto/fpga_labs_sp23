@@ -66,7 +66,7 @@ module z1top_register_file (
   // SWITCHES[1:0] == 2'b00 --> display current input addr
   // SWITCHES[1:0] == 2'b01 --> display current input data
   // SWITCHES[1:0] == 2'b1x --> display dout
-  assign LEDS = (SWITCHES == 2'b00) ? addr_value :
+  assign LEDS = (SWITCHES == 2'b00) ? {1'b0, addr_value} :
                 (SWITCHES == 2'b01) ? data_value :
                                       dout[5:0];
 
