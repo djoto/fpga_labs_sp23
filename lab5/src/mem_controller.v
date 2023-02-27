@@ -18,9 +18,9 @@ module mem_controller #(
   localparam NUM_BYTES_PER_WORD = MEM_WIDTH/8;
   localparam MEM_ADDR_WIDTH = $clog2(MEM_DEPTH); 
 
-  reg [NUM_BYTES_PER_WORD-1:0] mem_we = 0;
-  reg [MEM_ADDR_WIDTH-1:0] mem_addr;
-  reg [MEM_WIDTH-1:0] mem_din;
+  wire [NUM_BYTES_PER_WORD-1:0] mem_we = 0;
+  wire [MEM_ADDR_WIDTH-1:0] mem_addr;
+  wire [MEM_WIDTH-1:0] mem_din;
   wire [MEM_WIDTH-1:0] mem_dout;
 
   memory #(
@@ -44,14 +44,14 @@ module mem_controller #(
     ECHO_VAL = 3'd5,
     WRITE_MEM_VAL = 3'd6;
 
-  reg [2:0] curr_state;
-  reg [2:0] next_state;
+  wire [2:0] curr_state;
+  wire [2:0] next_state;
 
-  reg [2:0] pkt_rd_cnt;
-  reg [MEM_WIDTH-1:0] cmd;
-  reg [MEM_WIDTH-1:0] addr;
-  reg [MEM_WIDTH-1:0] data;
-  reg handshake;
+  wire [2:0] pkt_rd_cnt;
+  wire [MEM_WIDTH-1:0] cmd;
+  wire [MEM_WIDTH-1:0] addr;
+  wire [MEM_WIDTH-1:0] data;
+  wire handshake;
 
   /* TODO: MODIFY THIS */
   assign state_leds = 'd0;
