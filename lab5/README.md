@@ -457,22 +457,6 @@ To checkoff for this lab, have these things ready to show the TA:
   - Go through the FIFO simulation results and show it works correctly.
   - Demonstrate on FPGA that it can perform write and read operations with the memory: 1. read after write, in random addresses and orders (e.g. W-R-W-R or W-W-R-R etc.)
 
-## Personal Laptop Instructions
-
-### Linux/OSX
-After plugging in the USB cable, run `dmesg` and observe the output:
-```text
-[7444636.941491] ftdi_sio 1-2:1.0: FTDI USB Serial Device converter detected
-[7444636.941621] usb 1-2: Detected FT232RL
-[7444636.942062] usb 1-2: FTDI USB Serial Device converter now attached to ttyUSB0
-```
-
-Then connect using `sudo screen /dev/ttyUSB0 115200`
-
-### Windows
-After plugging in the USB cable, you may be prompted to install the FTDI drivers, so do that.
-Follow the [steps from here](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842446/Setup+a+Serial+Console) to use PuTTY to connect to the UART.
-
 ## Acknowledgement
 This lab is the result of the work of many EECS151/251 GSIs over the years including:
 - Sp12: James Parker, Daiwei Li, Shaoyi Cheng
