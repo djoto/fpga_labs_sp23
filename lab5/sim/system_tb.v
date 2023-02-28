@@ -148,6 +148,7 @@ module system_tb();
     end
   endtask 
 
+  integer z;
   initial begin
 
     `ifndef IVERILOG
