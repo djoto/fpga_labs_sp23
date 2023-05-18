@@ -70,7 +70,7 @@ vivado: build
 	cd build && nohup $(VIVADO) </dev/null >/dev/null 2>&1 &
 
 lint:
-	verilator --lint-only --top-module $(TOP) $(RTL)
+	verilator --lint-only --timescale 1ps/1ps --top-module $(TOP) $(RTL)
 
 sim_build/compile_simlib/synopsys_sim.setup:
 	mkdir -p sim_build/compile_simlib
