@@ -29,7 +29,11 @@ module counter_testbench();
 
         // TODO: Change input values and step forward in time to test
         // your counter and its clock enable/disable functionality.
+        ce = 1'b1;
+        #(17500000);
 
+	ce = 1'b0;
+        #(2000000)
 
         `ifndef IVERILOG
             $vcdplusoff;

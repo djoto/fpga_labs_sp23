@@ -1,0 +1,295 @@
+cd /home/djordje/nesto_za_pocetak/cntr_lab2_vsim
+vlib work
+vmap work work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work work 
+# Copying /home/djordje/modelsim/intelFPGA/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:54:49 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v 
+# -- Compiling module counter
+# ** Warning: /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v(43): (vlog-2182) 'current_count' might be read before written in always_comb or always @* block.
+# 
+# Top level modules:
+# 	counter
+# End time: 15:54:49 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:54:49 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v 
+# -- Compiling module counter_testbench
+# ** Error: (vlog-13069) /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v(34): near "else": syntax error, unexpected else, expecting ';'.
+# End time: 15:54:49 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlib work
+# ** Warning: (vlib-34) Library already exists at "work".
+vmap work work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work work 
+# Modifying modelsim.ini
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:02:26 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v 
+# -- Compiling module counter
+# ** Warning: /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v(43): (vlog-2182) 'current_count' might be read before written in always_comb or always @* block.
+# 
+# Top level modules:
+# 	counter
+# End time: 16:02:26 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:02:26 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v 
+# -- Compiling module counter_testbench
+# ** Error: (vlog-13069) /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v(34): near "else": syntax error, unexpected else, expecting ';'.
+# End time: 16:02:26 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:02:26 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v 
+# -- Compiling module counter
+# ** Warning: /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v(43): (vlog-2182) 'current_count' might be read before written in always_comb or always @* block.
+# 
+# Top level modules:
+# 	counter
+# End time: 16:02:26 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:02:26 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v 
+# -- Compiling module counter_testbench
+# ** Error: (vlog-13069) /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v(34): near "else": syntax error, unexpected else, expecting ';'.
+# End time: 16:02:26 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/EECS151.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:02:26 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/EECS151.v 
+# -- Compiling module REGISTER
+# -- Compiling module REGISTER_CE
+# -- Compiling module REGISTER_R
+# -- Compiling module REGISTER_R_CE
+# -- Compiling module ASYNC_ROM
+# -- Compiling module ASYNC_RAM
+# -- Compiling module SYNC_ROM
+# -- Compiling module SYNC_RAM
+# -- Compiling module SYNC_ROM_DP
+# -- Compiling module ASYNC_RAM_DP
+# -- Compiling module SYNC_RAM_DP
+# -- Compiling module SYNC_RAM_WBE
+# -- Compiling module SYNC_RAM_DP_WBE
+# -- Compiling module ASYNC_RAM_1W2R
+# 
+# Top level modules:
+# 	REGISTER
+# 	REGISTER_CE
+# 	REGISTER_R
+# 	REGISTER_R_CE
+# 	ASYNC_ROM
+# 	ASYNC_RAM
+# 	SYNC_ROM
+# 	SYNC_RAM
+# 	SYNC_ROM_DP
+# 	ASYNC_RAM_DP
+# 	SYNC_RAM_DP
+# 	SYNC_RAM_WBE
+# 	SYNC_RAM_DP_WBE
+# 	ASYNC_RAM_1W2R
+# End time: 16:02:27 on May 04,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/EECS151.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:04:03 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/EECS151.v 
+# -- Compiling module REGISTER
+# -- Compiling module REGISTER_CE
+# -- Compiling module REGISTER_R
+# -- Compiling module REGISTER_R_CE
+# -- Compiling module ASYNC_ROM
+# -- Compiling module ASYNC_RAM
+# -- Compiling module SYNC_ROM
+# -- Compiling module SYNC_RAM
+# -- Compiling module SYNC_ROM_DP
+# -- Compiling module ASYNC_RAM_DP
+# -- Compiling module SYNC_RAM_DP
+# -- Compiling module SYNC_RAM_WBE
+# -- Compiling module SYNC_RAM_DP_WBE
+# -- Compiling module ASYNC_RAM_1W2R
+# 
+# Top level modules:
+# 	REGISTER
+# 	REGISTER_CE
+# 	REGISTER_R
+# 	REGISTER_R_CE
+# 	ASYNC_ROM
+# 	ASYNC_RAM
+# 	SYNC_ROM
+# 	SYNC_RAM
+# 	SYNC_ROM_DP
+# 	ASYNC_RAM_DP
+# 	SYNC_RAM_DP
+# 	SYNC_RAM_WBE
+# 	SYNC_RAM_DP_WBE
+# 	ASYNC_RAM_1W2R
+# End time: 16:04:03 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:04:03 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v 
+# -- Compiling module counter_testbench
+# 
+# Top level modules:
+# 	counter_testbench
+# End time: 16:04:03 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:04:03 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v 
+# -- Compiling module counter
+# ** Warning: /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v(43): (vlog-2182) 'current_count' might be read before written in always_comb or always @* block.
+# 
+# Top level modules:
+# 	counter
+# End time: 16:04:03 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+clear
+# [H[2J[3J
+clean
+
+
+
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/EECS151.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:05:04 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/EECS151.v 
+# -- Compiling module REGISTER
+# -- Compiling module REGISTER_CE
+# -- Compiling module REGISTER_R
+# -- Compiling module REGISTER_R_CE
+# -- Compiling module ASYNC_ROM
+# -- Compiling module ASYNC_RAM
+# -- Compiling module SYNC_ROM
+# -- Compiling module SYNC_RAM
+# -- Compiling module SYNC_ROM_DP
+# -- Compiling module ASYNC_RAM_DP
+# -- Compiling module SYNC_RAM_DP
+# -- Compiling module SYNC_RAM_WBE
+# -- Compiling module SYNC_RAM_DP_WBE
+# -- Compiling module ASYNC_RAM_1W2R
+# 
+# Top level modules:
+# 	REGISTER
+# 	REGISTER_CE
+# 	REGISTER_R
+# 	REGISTER_R_CE
+# 	ASYNC_ROM
+# 	ASYNC_RAM
+# 	SYNC_ROM
+# 	SYNC_RAM
+# 	SYNC_ROM_DP
+# 	ASYNC_RAM_DP
+# 	SYNC_RAM_DP
+# 	SYNC_RAM_WBE
+# 	SYNC_RAM_DP_WBE
+# 	ASYNC_RAM_1W2R
+# End time: 16:05:04 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:05:04 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v 
+# -- Compiling module counter_testbench
+# 
+# Top level modules:
+# 	counter_testbench
+# End time: 16:05:04 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:05:04 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v 
+# -- Compiling module counter
+# ** Warning: /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v(43): (vlog-2182) 'current_count' might be read before written in always_comb or always @* block.
+# 
+# Top level modules:
+# 	counter
+# End time: 16:05:04 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:05:04 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v 
+# -- Compiling module counter
+# ** Warning: /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter.v(43): (vlog-2182) 'current_count' might be read before written in always_comb or always @* block.
+# 
+# Top level modules:
+# 	counter
+# End time: 16:05:04 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:05:04 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v 
+# -- Compiling module counter_testbench
+# 
+# Top level modules:
+# 	counter_testbench
+# End time: 16:05:04 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/EECS151.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:05:04 on May 04,2023
+# vlog -reportprogress 300 -work work /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/EECS151.v 
+# -- Compiling module REGISTER
+# -- Compiling module REGISTER_CE
+# -- Compiling module REGISTER_R
+# -- Compiling module REGISTER_R_CE
+# -- Compiling module ASYNC_ROM
+# -- Compiling module ASYNC_RAM
+# -- Compiling module SYNC_ROM
+# -- Compiling module SYNC_RAM
+# -- Compiling module SYNC_ROM_DP
+# -- Compiling module ASYNC_RAM_DP
+# -- Compiling module SYNC_RAM_DP
+# -- Compiling module SYNC_RAM_WBE
+# -- Compiling module SYNC_RAM_DP_WBE
+# -- Compiling module ASYNC_RAM_1W2R
+# 
+# Top level modules:
+# 	REGISTER
+# 	REGISTER_CE
+# 	REGISTER_R
+# 	REGISTER_R_CE
+# 	ASYNC_ROM
+# 	ASYNC_RAM
+# 	SYNC_ROM
+# 	SYNC_RAM
+# 	SYNC_ROM_DP
+# 	ASYNC_RAM_DP
+# 	SYNC_RAM_DP
+# 	SYNC_RAM_WBE
+# 	SYNC_RAM_DP_WBE
+# 	ASYNC_RAM_1W2R
+# End time: 16:05:04 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.counter_testbench
+# vsim work.counter_testbench 
+# Start time: 16:05:47 on May 04,2023
+# Loading work.counter_testbench
+# Loading work.counter
+# Loading work.REGISTER
+# Loading work.REGISTER_CE
+# ** Error: (vsim-3043) Unresolved reference to 'assert'.
+#    Time: 0 ns  Iteration: 0  Instance: /counter_testbench File: /home/djordje/nesto_za_pocetak/cntr_lab2_vsim/counter_testbench.v Line: 34
+# Error loading design
+# End time: 16:05:47 on May 04,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
