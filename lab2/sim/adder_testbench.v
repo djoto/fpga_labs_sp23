@@ -8,6 +8,9 @@ module adder_testbench();
     reg [13:0] b;
     wire [14:0] sum;
 
+    integer ai, bi;
+    integer a_r, b_r;
+
     structural_adder sa (
         .a(a),
         .b(b),
@@ -40,6 +43,28 @@ module adder_testbench();
             $error("Expected sum to be 20, a: %d, b: %d, actual value: %d", a, b, sum);
             $fatal(1);
         end
+
+	// Exhaustive testing
+	for (ai = 0; ai < 1024; ai = ai + 1) begin
+	    for (bi = 0; bi < 1024; bi = bi + 1) begin
+	        a = ai;
+	        b = bi;
+	        // delay + assert
+	        #(2);
+	        assert(sum == ai+bi) else $display("Error: Expected sum to be %d, actual value: %d", ai+bi, sum);
+	    end
+	end
+
+	// Random testing
+	for (ai = 0; ai < 1_000_000; ai = ai + 1) begin
+	    a_r = $urandom() % (2 ** 14);
+	    b_r = $urandom() % (2 ** 14);
+	    a = a_r;
+	    b = b_r;
+	    // delay + assert
+	    #(2);
+	    assert(sum == a_r+b_r) else $display("Error: Expected sum to be %d, actual value: %d", a_r+b_r, sum);
+	end
 
         `ifndef IVERILOG
             $vcdplusoff;
