@@ -30,6 +30,14 @@ module register_file_tb();
 
   // Some basic tests are done for you. Feel free to add your own tests
   initial begin
+    // added to generate .fst file
+    `ifdef IVERILOG
+        $dumpfile("register_file_tb.fst");
+        $dumpvars(0, register_file_tb);
+    `endif
+    `ifndef IVERILOG
+        $vcdpluson;
+    `endif
     #0;
 
     repeat (10) @(posedge clk);
