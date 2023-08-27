@@ -4,7 +4,7 @@
 `define CLOCK_FREQ 125_000_000
 
 // `define REGISTER_FILE
-`define ACCUMULATOR
+// `define ACCUMULATOR
 `define CALCULATOR
 
 module z1top (

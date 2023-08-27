@@ -37,6 +37,12 @@ module control_unit # (
 
   // What states do we need?
   localparam STATE_IDLE = 3'd0;
+  localparam STATE_WRITE_ADDR = 3'd1;
+  localparam STATE_WRITE_DATA = 3'd2;
+  localparam STATE_READ_ADDR = 3'd3;
+  localparam STATE_COMPUTE_ADDR_1 = 3'd4;
+  localparam STATE_COMPUTE_ADDR_2 = 3'd5;
+  localparam STATE_COMPUTE_ADDR_DEST = 3'd6;
 
   reg  [2:0] state_next;
   wire [2:0] state_value;
@@ -67,29 +73,92 @@ module control_unit # (
     case (state_value)
       STATE_IDLE: begin
         // FIXME
-        state_next = STATE_IDLE;
+	if ((SWITCHES[1:0] == 2'b00) & buttons_pressed[3]) begin
+	  state_next = STATE_WRITE_ADDR;
+	end
+	else if ((SWITCHES[1:0] == 2'b01) & buttons_pressed[3]) begin
+	  state_next = STATE_READ_ADDR;
+	end
+	else if ((SWITCHES[1:0] == 2'b10) & buttons_pressed[3]) begin
+	  state_next = STATE_COMPUTE_ADDR_1;
+	end
+	else begin
+	  state_next = STATE_IDLE;
+        end
       end
-
-      // TODO
-
+      STATE_WRITE_ADDR: begin
+        // FIXME
+	if (buttons_pressed[2]) begin
+	  state_next = STATE_WRITE_DATA;
+	end
+	else begin
+	  state_next = STATE_WRITE_ADDR;
+	end
+      end
+      STATE_WRITE_DATA: begin
+        // FIXME
+	if (buttons_pressed[2]) begin
+	  state_next = STATE_IDLE;
+	end
+	else begin
+	  state_next = STATE_WRITE_DATA;
+	end
+      end
+      STATE_READ_ADDR: begin
+        // FIXME
+	if (buttons_pressed[2]) begin
+	  state_next = STATE_IDLE;
+	end
+	else begin
+	  state_next = STATE_READ_ADDR;
+	end
+      end
+      STATE_COMPUTE_ADDR_1: begin
+        // FIXME
+	if (buttons_pressed[2]) begin
+	  state_next = STATE_COMPUTE_ADDR_2;
+	end
+	else begin
+	  state_next = STATE_COMPUTE_ADDR_1;
+	end
+      end
+      STATE_COMPUTE_ADDR_2: begin
+        // FIXME
+	if (buttons_pressed[2]) begin
+	  state_next = STATE_COMPUTE_ADDR_DEST;
+	end
+	else begin
+	  state_next = STATE_COMPUTE_ADDR_2;
+	end
+      end
+      STATE_COMPUTE_ADDR_DEST: begin
+        // FIXME
+	if (buttons_pressed[2]) begin
+	  state_next = STATE_IDLE;
+	end
+	else begin
+	  state_next = STATE_COMPUTE_ADDR_DEST;
+	end
+      end
+      default: state_next = STATE_IDLE;
     endcase
   end
 
   assign keypad_reg_next = (buttons_pressed[0] == 1'b1) ? keypad_reg_value + 1 :
                            (buttons_pressed[1] == 1'b1) ? keypad_reg_value - 1 : keypad_reg_value;
-  assign keypad_reg_rst  = 0; // FIXME
-  assign keypad_reg_cen   = 0; // FIXME
+  assign keypad_reg_rst  = rst; // FIXME
+  assign keypad_reg_cen   = ~idle; // FIXME
 
-  assign op_a_cen     = 0; // FIXME
-  assign op_b_cen     = 0; // FIXME
-  assign result_cen   = 0; // FIXME
-  assign addr_cen = 0; // FIXME
+  assign op_a_cen     = (state_value == STATE_COMPUTE_ADDR_1) & buttons_pressed[2]; // FIXME
+  assign op_b_cen     = (state_value == STATE_COMPUTE_ADDR_2) & buttons_pressed[2]; // FIXME
+  assign result_cen   = 1; //buttons_pressed[2]; // FIXME
+  assign addr_cen     = ~((state_value == STATE_WRITE_DATA) | (state_value == STATE_IDLE)); // FIXME
 
-  assign read  = 0; // FIXME
-  assign write = 0; // FIXME
+  assign read  = (state_value != STATE_COMPUTE_ADDR_DEST); // FIXME
+  assign write = ((state_value == STATE_WRITE_DATA) | (state_value == STATE_COMPUTE_ADDR_DEST)) & buttons_pressed[2]; // FIXME
 
-  assign write_sel = 0; // FIXME
-  assign disp_sel = 0; // FIXME
+  assign write_sel = (state_value == STATE_COMPUTE_ADDR_DEST) & buttons_pressed[2]; // FIXME
+  assign disp_sel = idle; // FIXME
 
   assign keypad_value = keypad_reg_value;
   assign idle = (state_value == STATE_IDLE);

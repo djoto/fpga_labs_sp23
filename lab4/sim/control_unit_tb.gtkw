@@ -1,0 +1,57 @@
+[*]
+[*] GTKWave Analyzer v3.3.115 (w)1999-2023 BSI
+[*] Sun Aug 27 16:12:23 2023
+[*]
+[dumpfile] "/home/djordje/BTECH/2_IC_and_Digital_Design_Courses/EE151/fpga_labs_sp23/lab4/sim/control_unit_tb.fst"
+[dumpfile_mtime] "Sun Aug 27 16:11:36 2023"
+[dumpfile_size] 4593
+[savefile] "/home/djordje/BTECH/2_IC_and_Digital_Design_Courses/EE151/fpga_labs_sp23/lab4/sim/control_unit_tb.gtkw"
+[timestart] 0
+[size] 1920 1015
+[pos] -1 -1
+*-9.000000 2644 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] control_unit_tb.
+[treeopen] z1top.
+[treeopen] z1top_register_file.
+[sst_width] 299
+[signals_width] 227
+[sst_expanded] 1
+[sst_vpaned_height] 288
+@28
+[color] 2
+control_unit_tb.CONTROL_UNIT.clk
+[color] 2
+control_unit_tb.CONTROL_UNIT.rst
+control_unit_tb.CONTROL_UNIT.SWITCHES[1:0]
+@800022
+control_unit_tb.CONTROL_UNIT.buttons_pressed[3:0]
+@28
+(0)control_unit_tb.CONTROL_UNIT.buttons_pressed[3:0]
+(1)control_unit_tb.CONTROL_UNIT.buttons_pressed[3:0]
+(2)control_unit_tb.CONTROL_UNIT.buttons_pressed[3:0]
+(3)control_unit_tb.CONTROL_UNIT.buttons_pressed[3:0]
+@1001200
+-group_end
+@22
+control_unit_tb.CONTROL_UNIT.keypad_value[3:0]
+@28
+[color] 3
+control_unit_tb.CONTROL_UNIT.addr_cen
+[color] 3
+control_unit_tb.CONTROL_UNIT.op_a_cen
+[color] 3
+control_unit_tb.CONTROL_UNIT.op_b_cen
+[color] 3
+control_unit_tb.CONTROL_UNIT.result_cen
+control_unit_tb.CONTROL_UNIT.read
+control_unit_tb.CONTROL_UNIT.write
+control_unit_tb.CONTROL_UNIT.write_sel
+control_unit_tb.CONTROL_UNIT.disp_sel
+control_unit_tb.CONTROL_UNIT.idle
+@22
+control_unit_tb.DATAPATH.addr[3:0]
+control_unit_tb.DATAPATH.dout[3:0]
+[color] 5
+control_unit_tb.DATAPATH.disp_output[3:0]
+[pattern_trace] 1
+[pattern_trace] 0
