@@ -3,7 +3,7 @@
 `timescale 1ns/1ns
 `define CLOCK_FREQ 125_000_000
 
-`define REGISTER_FILE
+// `define REGISTER_FILE
 `define ACCUMULATOR
 `define CALCULATOR
 

@@ -17,7 +17,7 @@ module acc_async_read #(
   // memory block asynchronously
   // Some initial code is provided to you, but feel free to change it
 
-  // indexing value to memory 
+  // indexing value to memory
   wire [31:0] index_reg_value, index_reg_next;
   wire index_reg_rst, index_reg_ce;
   REGISTER_R_CE #(.N(32), .INIT(0)) index_reg (
@@ -40,19 +40,19 @@ module acc_async_read #(
   );
 
   // TODO: Update these lines
-  assign read_addr = 0;
+  assign read_addr = index_reg_value;
 
-  assign index_reg_next = 0;
-  assign index_reg_ce   = 0;
-  assign index_reg_rst  = 0;
+  assign index_reg_next = index_reg_value == len ? index_reg_value : index_reg_value + 1;
+  assign index_reg_ce   = 1;
+  assign index_reg_rst  = rst;
 
-  assign sum_reg_next = 0;
-  assign sum_reg_ce   = 0;
-  assign sum_reg_rst  = 0;
+  assign sum_reg_next = done ? sum_reg_value : sum_reg_value + read_data;
+  assign sum_reg_ce   = 1;
+  assign sum_reg_rst  = rst;
 
-  assign acc_result = 0;
+  assign acc_result = sum_reg_value;
 
   // Note that you must hold 'done' HIGH after the computation finishes
-  assign done = 0;
+  assign done = index_reg_value >= len;
 
 endmodule

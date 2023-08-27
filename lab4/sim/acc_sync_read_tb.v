@@ -63,6 +63,15 @@ module acc_sync_read_tb();
   end
 
   initial begin
+    // added to generate .fst file
+    `ifdef IVERILOG
+        $dumpfile("acc_sync_read_tb.fst");
+        $dumpvars(0, acc_sync_read_tb);
+    `endif
+    `ifndef IVERILOG
+        $vcdpluson;
+    `endif
+
     rst = 1;
     len = 1024;
 
