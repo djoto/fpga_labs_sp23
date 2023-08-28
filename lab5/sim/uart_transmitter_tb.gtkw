@@ -1,0 +1,35 @@
+[timestart] 0
+[size] 1920 1015
+[pos] -1 -1
+*-28.000000 1063660 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] uart_transmitter_tb.
+[sst_width] 301
+[signals_width] 206
+[sst_expanded] 1
+[sst_vpaned_height] 287
+@28
+[color] 2
+uart_transmitter_tb.DUT.clk
+[color] 2
+uart_transmitter_tb.DUT.reset
+@22
+[color] 3
+uart_transmitter_tb.DUT.data_in[7:0]
+@28
+[color] 3
+uart_transmitter_tb.DUT.data_in_valid
+@22
+uart_transmitter_tb.DUT.data_in_reg[7:0]
+@24
+uart_transmitter_tb.DUT.state_value[1:0]
+uart_transmitter_tb.DUT.cycle_count[10:0]
+@22
+uart_transmitter_tb.DUT.bit_count[3:0]
+@28
+uart_transmitter_tb.DUT.serial_out_reg
+[color] 5
+uart_transmitter_tb.DUT.serial_out
+[color] 5
+uart_transmitter_tb.DUT.data_in_ready
+[pattern_trace] 1
+[pattern_trace] 0
