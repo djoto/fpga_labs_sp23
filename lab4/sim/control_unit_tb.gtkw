@@ -1,11 +1,3 @@
-[*]
-[*] GTKWave Analyzer v3.3.115 (w)1999-2023 BSI
-[*] Sun Aug 27 16:12:23 2023
-[*]
-[dumpfile] "/home/djordje/BTECH/2_IC_and_Digital_Design_Courses/EE151/fpga_labs_sp23/lab4/sim/control_unit_tb.fst"
-[dumpfile_mtime] "Sun Aug 27 16:11:36 2023"
-[dumpfile_size] 4593
-[savefile] "/home/djordje/BTECH/2_IC_and_Digital_Design_Courses/EE151/fpga_labs_sp23/lab4/sim/control_unit_tb.gtkw"
 [timestart] 0
 [size] 1920 1015
 [pos] -1 -1
