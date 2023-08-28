@@ -1,0 +1,47 @@
+[timestart] 0
+[size] 1920 1015
+[pos] -1 -1
+*-8.000000 1019 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] fifo_tb.
+[treeopen] fifo_tb.dut.
+[sst_width] 276
+[signals_width] 229
+[sst_expanded] 1
+[sst_vpaned_height] 288
+@28
+[color] 2
+fifo_tb.clk
+[color] 2
+fifo_tb.rst
+fifo_tb.rd_en
+fifo_tb.wr_en
+@24
+fifo_tb.din[31:0]
+@22
+fifo_tb.dut.count_next[3:0]
+fifo_tb.dut.count[3:0]
+@28
+fifo_tb.dut.can_read
+fifo_tb.dut.can_write
+fifo_tb.dut.rd_ptr[2:0]
+fifo_tb.dut.wr_ptr[2:0]
+fifo_tb.dut.ptr[2:0]
+[color] 3
+fifo_tb.dut.fifo_sync_ram.we
+[color] 3
+fifo_tb.dut.fifo_sync_ram.addr[2:0]
+@22
+[color] 3
+fifo_tb.dut.fifo_sync_ram.d[31:0]
+[color] 3
+fifo_tb.dut.fifo_sync_ram.read_data_reg[31:0]
+@28
+[color] 5
+fifo_tb.full
+[color] 5
+fifo_tb.empty
+@24
+[color] 5
+fifo_tb.dout[31:0]
+[pattern_trace] 1
+[pattern_trace] 0
